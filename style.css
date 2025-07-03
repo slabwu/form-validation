@@ -9,6 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: lightskyblue;
+  flex-direction: column;
   height: 100vh;
 }
 
@@ -19,7 +20,7 @@ form {
   gap: 10px;
   background-color: white;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 14px;
 }
 
 input {
@@ -54,4 +55,14 @@ input.invalid {
   color: white;
   font-size: 16px;
   cursor: pointer;
+}
+
+.title::after {
+  content: "*";
+  color: lightskyblue;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
 }
