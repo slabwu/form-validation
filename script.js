@@ -15,24 +15,26 @@ fields.forEach((field) => {
 
 const $ = (id) => document.getElementById(id)
 
-$('email').addEventListener('blur', (e) => {
-  let element = e.target
-  if (element.validity.typeMismatch) {
-    element.nextSibling.textContent = 'Please input a valid email address'
-    element.classList.add('invalid')
-  } else {
-    element.nextSibling.textContent = ''
-    element.classList.remove('invalid')
-  }
-})
+const validation = {
+    email: {
+        condition: i => i.validity.typeMismatch,
+        message: 'Please input a valid email address'
+    },
+    'postal code': {
+        condition: i => i.matches(':invalid') && i.value != '',
+        message: 'Postal code must be between 4-6 digits'
+    }
+}
 
-$('postal code').addEventListener('blur', (e) => {
-  let element = e.target
-  if (element.matches(':invalid') && element.value != '') {
-    element.nextSibling.textContent = 'Postal code must be between 4-6 digits'
-    element.classList.add('invalid')
-  } else {
-    element.nextSibling.textContent = ''
-    element.classList.remove('invalid')
-  }
-})
+for (const field of Object.keys(validation)) {
+    $(field).addEventListener('blur', (e) => {
+        let element = e.target
+        if (validation[field].condition(element)) {
+            element.nextSibling.textContent = validation[field].message
+            element.classList.add('invalid')
+        } else {
+            element.nextSibling.textContent = ''
+            element.classList.remove('invalid')
+        }
+    })
+}
