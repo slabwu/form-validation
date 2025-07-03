@@ -12,3 +12,16 @@ fields.forEach((field) => {
   error.innerText = ''
   field.after(error)
 })
+
+const $ = (id) => document.getElementById(id)
+
+$('email').addEventListener('blur', (e) => {
+  let element = e.target
+  if (element.validity.typeMismatch) {
+    element.nextSibling.textContent = 'Please input a valid email address'
+    element.classList.add('invalid')
+  } else {
+    element.nextSibling.textContent = ''
+    element.classList.remove('invalid')
+  }
+})
