@@ -23,7 +23,15 @@ const validation = {
     'postal code': {
         condition: i => i.matches(':invalid') && i.value != '',
         message: 'Postal code must be between 4-6 digits'
-    }
+    },
+    password: {
+        condition: i => i.validity.tooShort,
+        message: 'Password must be at least 8 characters long'
+    },
+    'confirm password': {
+        condition: i => i.value !== $('password').value,
+        message: 'Passwords must match'
+    },
 }
 
 for (const field of Object.keys(validation)) {
