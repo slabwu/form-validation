@@ -25,3 +25,14 @@ $('email').addEventListener('blur', (e) => {
     element.classList.remove('invalid')
   }
 })
+
+$('postal code').addEventListener('blur', (e) => {
+  let element = e.target
+  if (element.matches(':invalid') && element.value != '') {
+    element.nextSibling.textContent = 'Postal code must be between 4-6 digits'
+    element.classList.add('invalid')
+  } else {
+    element.nextSibling.textContent = ''
+    element.classList.remove('invalid')
+  }
+})
