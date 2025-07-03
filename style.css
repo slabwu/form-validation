@@ -45,3 +45,13 @@ input.invalid {
   font-size: 12px;
   height: 16px;
 }
+
+#submit {
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: dodgerblue;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}

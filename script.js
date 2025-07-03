@@ -46,3 +46,12 @@ for (const field of Object.keys(validation)) {
         }
     })
 }
+
+$('submit').addEventListener('click', (e) => {
+    e.preventDefault();
+    if (form.checkValidity() && $('confirm password').value === $('password').value) {
+        alert('Form submitted 🙌')
+    } else {
+        alert('Please complete the form.')
+    }
+})
