@@ -8,6 +8,13 @@
     <title>Form</title>
 </head>
 <body>
-    
+    <form novalidate>
+        <input id="email" type="email" required>
+        <input id="country" type="text" required>
+        <input id="postal code" type="tel" pattern="[0-9]{4,6}" required>
+        <input id="password" type="password" minlength="8" required>
+        <input id="confirm password" type="password" required>
+        <button id="submit">Submit</button>
+    </form>
 </body>
 </html>
